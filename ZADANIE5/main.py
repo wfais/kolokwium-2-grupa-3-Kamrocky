@@ -15,25 +15,31 @@ def create_app():
     3) Przycisk "Pokaż", który wyświetli wpisany tekst w innej etykiecie
     """
     # title - "Prosta aplikacja Tkinter"
+    app = tk.Tk()
+    app.geometry("300x200")
+    app.title("Prosta aplikacja Tkinter")
 
     # label_instruct = umocuj przez pack
+    label_instruct = tk.Label(app, text="Wpisz coś:")
+    label_instruct.pack()
 
-    # entry_text = 
+    entry_text = tk.Entry(app)
+    entry_text.pack()
 
-    # label_result = tk.Label(...
+    label_result = tk.Label(app, text="Tu pojawi się Twój tekst")
+    label_result.pack()
 
     # zdefiniuj funkcję show_text() pobierającą wpisany tekst i wyświetlającą w label_result
-    # def show_text():
-    #     ...
-    #     label_result.config(...)
+    def show_text():
+        entered_text = entry_text.get()
+        label_result.config(text=f"Wpisałeś: {entered_text}")
 
-    # button_show = 
-    # button_show.pack()
+    button_show = tk.Button(app, text="Pokaż", command=show_text)
+    button_show.pack()
 
-    # TODO: return root
-    pass
+    return app
+
 
 if __name__ == '__main__':
-    # TODO: app = create_app()
-    # TODO: app.mainloop()
-    pass
+    app = create_app()
+    app.mainloop()
